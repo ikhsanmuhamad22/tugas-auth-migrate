@@ -64,19 +64,14 @@ const booking = (req, res) => {
       status_pembayaran: req.body.pembayaran,
     })
     .then((data) => {
-      const booking = {
-        status_response: 'Created',
-        status: data,
-        errors: null
-      }
-      return res.status(201).send(booking);
+        res.send({
+            status: 'success',
+            message: 'berhasil booking travel',
+            booking: data
+        })
+    }).catch(err => {
+        res.status(500).send(err.message)
     })
-    .catch((error) => {
-      res.status(400).send({
-        status_response: 'Bad Request',
-        errors: error
-      });
-    });
 }
 
 module.exports = { verifyToken, busExist, booking}

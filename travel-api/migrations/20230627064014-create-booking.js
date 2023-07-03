@@ -20,6 +20,12 @@ module.exports = {
       },
       id_bus: {
         type: Sequelize.INTEGER,
+          references:{
+          model: 'buses',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'RESTRICT'
       },
       status_pembayaran: {
         type: Sequelize.BOOLEAN

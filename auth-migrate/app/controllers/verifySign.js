@@ -22,6 +22,8 @@ module.exports = {
                 }
             })
             .then(roles => {
+                console.log('user==>',user);
+                console.log('roles==>',roles);
                 user.setRoles(roles).then(() => {
                     res.status(200).send({
                         auth: true, 
